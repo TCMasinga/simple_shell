@@ -1,15 +1,11 @@
 #ifndef SHELL_H
 #define SHELL_H
 
-typedef struct info_s
-{
-	int status;
-} info_t;
-
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <errno.h>
@@ -20,8 +16,11 @@ typedef struct info_s
 
 #define BUFFER_SIZE 1024
 
-int exit_builtin(ino_t *my_info, char **args);
 int add(int sum1, int sum2);
-int _environ(info_t *my_info);
+int main(void);
+void _prompt(void);
+void main_print(const char * );
+void reading_command(char *command, size_t size);
+void _execute(const char *command);
 
 #endif
